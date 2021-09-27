@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/tradersclub/TCUtils/tcerr"
+	"github.com/madalenadev/mdutils/mderror"
 )
 
 func NewHTTP(opts Options) Resource {
@@ -70,7 +70,7 @@ func (i *implResource) request(ctx context.Context, method, endpoint string, bod
 			return err
 		}
 
-		return tcerr.NewError(res.StatusCode, http.StatusText(res.StatusCode), detail)
+		return mderror.NewError(res.StatusCode, http.StatusText(res.StatusCode), detail)
 	}
 
 	if data != nil {

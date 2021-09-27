@@ -5,7 +5,6 @@ import (
 	"time"
 )
 
-// Cache é a interface do pacote de cache
 type Cache interface {
 	Get(ctx context.Context, key string, v interface{}) error
 	Set(ctx context.Context, key string, v interface{}) error
@@ -15,7 +14,6 @@ type Cache interface {
 	WithExpiration(d time.Duration) Cache
 }
 
-// Options struct de opções para a criação de uma instancia do cache
 type Options struct {
 	Expiration time.Duration `json:"expiration"`
 	URL        string        `json:"url"`
