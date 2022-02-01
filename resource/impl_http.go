@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/madalenadev/mdutils/mderror"
+	"github.com/madalenahq/mdutils/mderror"
 )
 
 func NewHTTP(opts Options) Resource {

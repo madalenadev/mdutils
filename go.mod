@@ -1,3 +1,3 @@
-module github.com/madalenadev/mdutils
+module github.com/madalenahq/mdutils
 
 go 1.16
