@@ -48,23 +48,29 @@ func (n *notificationImpl) sendText(text string) error {
 	msg.ParseMode = "html"
 
 	if _, err := n.client.Send(msg); err != nil {
-		log.Println("fail to send message")
+		log.Println("fail to send message: ", err.Error())
 	}
 
 	return nil
 }
 
 func (n *notificationImpl) Info(text string) {
-	t := `<strong>🗞 Ino • ` + n.context + `</strong>\n` + text
+	t := `<strong>🗞 Info • ` + n.context + `</strong>
+	
+	` + text
 	n.sendText(t)
 }
 
 func (n *notificationImpl) Warning(text string) {
-	t := `<strong>⚠️ Warning • ` + n.context + `</strong>\n` + text
+	t := `<strong>👀 Warning • ` + n.context + `</strong>
+	
+	` + text
 	n.sendText(t)
 }
 
 func (n *notificationImpl) Error(text string) {
-	t := `<strong>🚨 Error • ` + n.context + `</strong>\n` + text
+	t := `<strong>🚨 Error • ` + n.context + `</strong>
+	
+	` + text
 	n.sendText(t)
 }

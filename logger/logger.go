@@ -15,7 +15,6 @@ const (
 	WARNING   = "Warning"
 	ERROR     = "Error"
 	ALERT     = "Alert"
-	CRITICAL  = "Critical"
 	EMERGENCY = "Emergency"
 )
 
@@ -61,67 +60,32 @@ func setFieldSeverity(lvl string) {
 	}
 }
 
-// Default show detail of log
-func Default(args ...interface{}) {
-	setFieldSeverity(DEFAULT)
-	log.WithFields(*fields).Info(args...)
-}
-
-// Notice show detail of log
-func Notice(args ...interface{}) {
-	setFieldSeverity(NOTICE)
-	log.WithFields(*fields).Info(args...)
-}
-
 // Warning show detail of log
 func Warning(args ...interface{}) {
 	setFieldSeverity(WARNING)
 	log.WithFields(*fields).Warning(args...)
 }
 
-// Alert show detail of errors
-func Alert(args ...interface{}) {
-	setFieldSeverity(ALERT)
-	log.WithFields(*fields).Error(args...)
-}
-
-// Critical show detail of log and generate a fatal
-func Critical(args ...interface{}) {
-	setFieldSeverity(CRITICAL)
-	log.WithFields(*fields).Fatal(args...)
-}
-
-// Emergency show detail of log and generate a panic
-func Emergency(args ...interface{}) {
-	setFieldSeverity(EMERGENCY)
-	log.WithFields(*fields).Panic(args...)
-}
-
-// Error exibe detalhes do erro
 func Error(args ...interface{}) {
 	setFieldSeverity(ERROR)
 	log.WithFields(*fields).Error(args...)
 }
 
-// Info exibe detalhes do log info
 func Info(args ...interface{}) {
 	setFieldSeverity(INFO)
 	log.WithFields(*fields).Info(args...)
 }
 
-// Debug exibe detalhes do log debug
 func Debug(args ...interface{}) {
 	setFieldSeverity(DEBUG)
 	log.WithFields(*fields).Debug(args...)
 }
 
-// Trace exibe detalhes do log trace
 func Trace(args ...interface{}) {
 	setFieldSeverity(DEBUG)
 	log.WithFields(*fields).Trace(args...)
 }
 
-// Fatal exibe detalhes do erro
 func Fatal(args ...interface{}) {
 	setFieldSeverity(EMERGENCY)
 	log.WithFields(*fields).Panic(args...)
